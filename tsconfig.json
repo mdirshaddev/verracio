@@ -14,11 +14,16 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "paths": {
+      "shared-ui/*": ["src/components/shared/ui/*"], // shadcn ui component
+      "shared-config/*": ["src/configs/*"], // base config for the application
+      "shared-lib/*": ["src/lib/*"] // shadcn lib for utils and fonts
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

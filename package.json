@@ -1,6 +1,7 @@
 {
   "name": "mdirshad",
   "homepage": "https://mdirshad.vercel.app",
+  "description": "💠 Personal website and blog made using Next.js, TypeScript, Tailwind CSS, Firebase, Sentry, Google Analytics, MDX Bundler, Prisma and PostgreSQL (NeonDB). Deployed on Vercel with Checkly.",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",

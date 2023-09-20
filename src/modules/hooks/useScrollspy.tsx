@@ -11,7 +11,7 @@ import throttle from "lodash/throttle";
  * @returns The `useScrollSpy` function returns the `activeSection` state variable, which is a string
  * representing the currently active section based on the scroll position.
  */
-export const useScrollSpy: React.FC = (): string | null => {
+export const useScrollSpy: () => string | null = (): string | null => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const throttleMs = 100;

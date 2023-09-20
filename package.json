@@ -51,6 +51,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
+    "lodash": "^4.17.21",
     "next": "13.4.19",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
@@ -63,6 +64,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.198",
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",

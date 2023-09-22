@@ -12,4 +12,4 @@ export type NextCloudinaryImgType = {
     height: number;
   };
   mdx?: boolean;
-} & React.ComponentPropsWithoutRef<"figure">;
+} & React.ComponentPropsWithoutRef<'figure'>;

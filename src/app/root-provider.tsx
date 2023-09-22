@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 // next-theme theme provider props
-import { type ThemeProviderProps } from "next-themes/dist/types";
+import { type ThemeProviderProps } from 'next-themes/dist/types';
 
 // next-theme theme provider component
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 type RootProviderProps = ThemeProviderProps;
 

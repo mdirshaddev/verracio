@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * The SplitImage component is a React functional component that renders its children in a grid layout
@@ -10,9 +10,9 @@
  * @returns The SplitImage component is returning a div element with the className "grid grid-cols-2
  * items-start gap-4". The children of the component are rendered inside this div element.
  */
-const SplitImage: React.FC<React.PropsWithChildren> = (props) => {
+const SplitImage: React.FC<React.PropsWithChildren> = props => {
   const { children } = props;
-  return <div className="grid grid-cols-2 items-start gap-4">{children}</div>;
+  return <div className='grid grid-cols-2 items-start gap-4'>{children}</div>;
 };
 
 export { SplitImage };

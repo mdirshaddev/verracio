@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 // react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 // preload state hooks
-import { usePreloadState } from "./usePreloadState";
+import { usePreloadState } from './usePreloadState';
 
 /**
  * The function `useLoaded` is a custom hook in TypeScript React that returns a boolean value

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 // react
-import { createContext } from "react";
+import { createContext } from 'react';
 
 /* This line of code is creating a context object called `PreloadContext` using the
 `React.createContext` function. The context object is of type `React.Context<boolean>`, which means

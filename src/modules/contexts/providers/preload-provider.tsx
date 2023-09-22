@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
 // react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 // Shadcn
-import { cn } from "shared-lib/utils";
+import { cn } from 'shared-lib/utils';
 
 // preload context
-import { PreloadContext } from "src/modules/contexts/preload-context";
+import { PreloadContext } from 'src/modules/contexts/preload-context';
 
 /**
  * The PreloadProvider component is a React functional component that provides a preloading context and
@@ -18,7 +18,7 @@ import { PreloadContext } from "src/modules/contexts/preload-context";
  * @returns The PreloadProvider component is returning a JSX element.
  */
 export const PreloadProvider: React.FC<React.PropsWithChildren> = (
-  props,
+  props
 ): JSX.Element => {
   /** If the dom is loaded */
   const [preloaded, setIsPreloaded] = useState<boolean>(false);
@@ -37,8 +37,8 @@ export const PreloadProvider: React.FC<React.PropsWithChildren> = (
     <PreloadContext.Provider value={preloaded}>
       <div
         className={cn(
-          "fixed inset-0 flex items-center justify-center bg-background transition-opacity",
-          preloaded && "pointer-events-none opacity-0",
+          'fixed inset-0 flex items-center justify-center bg-background transition-opacity',
+          preloaded && 'pointer-events-none opacity-0'
         )}
       />
       {children}

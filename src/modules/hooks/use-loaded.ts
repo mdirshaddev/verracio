@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 
 // preload state hooks
-import { usePreloadState } from './usePreloadState';
+import { usePreloadState } from './use-preload-state';
 
 /**
  * The function `useLoaded` is a custom hook in TypeScript React that returns a boolean value
@@ -12,7 +12,7 @@ import { usePreloadState } from './usePreloadState';
  * @returns The function `useLoaded` returns a boolean value indicating whether the component is loaded
  * or not.
  */
-const useLoaded: () => boolean = (): boolean => {
+export const useLoaded: () => boolean = (): boolean => {
   const preloaded = usePreloadState();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
@@ -28,5 +28,3 @@ const useLoaded: () => boolean = (): boolean => {
 
   return isLoaded;
 };
-
-export { useLoaded };

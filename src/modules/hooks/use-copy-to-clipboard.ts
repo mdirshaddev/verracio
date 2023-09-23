@@ -13,7 +13,7 @@ import { useState } from 'react';
  * a value `copiedText`.
  * @see https://usehooks-ts.com/react-hook/use-copy-to-clipboard
  */
-const useCopyToClipboard = (): [CopyFn, CopiedValue] => {
+export const useCopyToClipboard = (): [CopyFn, CopiedValue] => {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
 
   const copy: CopyFn = async text => {
@@ -40,5 +40,3 @@ const useCopyToClipboard = (): [CopyFn, CopiedValue] => {
 
   return [copy, copiedText];
 };
-
-export { useCopyToClipboard };

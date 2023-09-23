@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
  * @returns The `useMousePosition` function returns the `mousePosition` object, which contains the
  * current x and y coordinates of the mouse.
  */
-const useMousePosition = (Element: HTMLDivElement | null) => {
+export const useMousePosition = (Element: HTMLDivElement | null) => {
   const [mousePosition, setMousePosition] = useState<{
     x: number | null;
     y: number | null;
@@ -35,5 +35,3 @@ const useMousePosition = (Element: HTMLDivElement | null) => {
 
   return mousePosition;
 };
-
-export { useMousePosition };

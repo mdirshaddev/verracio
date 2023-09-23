@@ -13,4 +13,3 @@ export const Split: React.FC<React.PropsWithChildren> = props => {
   const { children } = props;
   return <div className='!mb-0 flex flex-col space-y-4'>{children}</div>;
 };
-

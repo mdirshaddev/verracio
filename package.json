@@ -17,6 +17,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "@as-integrations/next": "^2.0.2",
     "@giscus/react": "^2.3.0",
     "@hookform/resolvers": "^3.3.1",
     "@radix-ui/react-accordion": "^1.1.2",
@@ -51,6 +53,9 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
+    "encoding": "^0.1.13",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "mdx-bundler": "^9.2.1",

@@ -7,7 +7,7 @@ import type { FadeInContainerProps } from 'src/types/animations';
 import { cn } from 'shared-lib/utils';
 
 // hook for detecting load of component
-import { useLoaded } from 'src/modules/hooks/useLoaded';
+import { useLoaded } from 'src/modules/hooks/use-loaded';
 
 /**
  * The FadeInContainer component is a TypeScript React component that conditionally applies a fade-in

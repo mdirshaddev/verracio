@@ -1,11 +1,8 @@
-// mdx bundler
 import { bundleMDX } from 'mdx-bundler';
-
-// rehype plugins
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
-import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 
 /**
  * The `mdxConfig` function is an async function that takes a `source` string as input and returns an

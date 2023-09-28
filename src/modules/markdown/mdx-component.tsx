@@ -1,25 +1,24 @@
 'use client';
 
-// react
 import { Fragment, useMemo } from 'react';
 
-// mdx bundler client component
 import { getMDXComponent } from 'mdx-bundler/client';
 
-// Shared images
-import { Split } from 'src/components/images/split';
-import { SplitImage } from 'src/components/images/split-image';
-import { NextCloudinaryImg } from 'src/components/images/next-cloudinary-image';
+import { TweetCard, YoutubeEmbed } from 'src/components/embeddings';
+import { NextCloudinaryImg, Split, SplitImage } from 'src/components/images';
+import { StyledLink } from 'src/components/links';
 
-// Shared links
-import { StyledLink } from 'src/components/links/styled-link';
+import { Pre } from './components/pre';
 
 // TODO: We cannot keep any here as type
 const MarkdownComponent: any = {
   a: StyledLink,
+  pre: Pre,
   Split,
   SplitImage,
-  NextCloudinaryImg
+  NextCloudinaryImg,
+  TweetCard,
+  YoutubeEmbed
 };
 
 /**

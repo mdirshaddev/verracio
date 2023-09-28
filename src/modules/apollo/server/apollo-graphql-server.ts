@@ -1,19 +1,13 @@
 import 'reflect-metadata';
 
-// next request typing
 import { type NextRequest } from 'next/server';
 
-// apollo server
 import { ApolloServer } from '@apollo/server';
-
-// apollo server next integration
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 
-// type-graphql schema with typegraphql-prisma plugin
-import { TypeGraphQLIntegratedSchema } from 'src/modules/schema';
-
-// prisma client integrated with type graphql schema
 import { nextPrismaClient as prisma } from 'src/modules/prisma/prisma-client';
+
+import { TypeGraphQLIntegratedSchema } from 'src/modules/schema';
 
 /**
  * The function creates an Apollo Server instance with a TypeGraphQL integrated schema, bounded cache,

@@ -1,9 +1,7 @@
 import 'reflect-metadata';
 
-// next typing request
 import { type NextRequest } from 'next/server';
 
-// next customised integrated apollo server
 import { nextIntegratedApolloServerHandler } from 'src/modules/apollo/server/apollo-graphql-server';
 
 /**

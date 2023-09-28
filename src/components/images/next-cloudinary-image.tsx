@@ -1,20 +1,12 @@
 'use client';
 
-// next cloudinary image typing
-import type { NextCloudinaryImgType } from 'src/types/next-cloudinary';
-
-// react
+import Image from 'next/image';
 import { useState } from 'react';
 
-// next image
-import Image from 'next/image';
-
-import Lightbox from 'react-18-image-lightbox';
-
-// build cloudinary url
 import { buildUrl } from 'cloudinary-build-url';
+import Lightbox from 'react-18-image-lightbox';
+import type { NextCloudinaryImgType } from 'src/types/next-cloudinary';
 
-// shared lib util
 import { cn } from 'shared-lib/utils';
 
 /* The code is defining a React functional component called `NextCloudinaryImg`. It takes in a set of
@@ -39,7 +31,8 @@ export const NextCloudinaryImg: React.FC<NextCloudinaryImgType> = props => {
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      cloudName: 'mdirshaddev'
+      // cloudName: 'mdirshaddev'
+      cloudName: 'theodorusclarence'
     },
     transformations: {
       effect: {
@@ -53,7 +46,8 @@ export const NextCloudinaryImg: React.FC<NextCloudinaryImgType> = props => {
   });
   const url = buildUrl(publicId, {
     cloud: {
-      cloudName: 'mdirshaddev'
+      // cloudName: 'mdirshaddev'
+      cloudName: 'theodorusclarence'
     },
     transformations: {
       rawTransformation: aspect

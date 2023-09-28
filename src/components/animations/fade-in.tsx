@@ -1,12 +1,9 @@
 'use client';
 
-// animation typings
 import type { FadeInContainerProps } from 'src/types/animations';
 
-// shared lib for utils
 import { cn } from 'shared-lib/utils';
 
-// hook for detecting load of component
 import { useLoaded } from 'src/modules/hooks/use-loaded';
 
 /**

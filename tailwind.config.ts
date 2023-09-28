@@ -1,7 +1,9 @@
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  content: ['./src/**/*.{ts,tsx,mdx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
@@ -11,6 +13,10 @@ module.exports = {
       }
     },
     extend: {
+      screens: {
+        'touch-device': { raw: '(hover: none)' },
+        'touch-no-animation': { raw: '(prefers-reduced-motion)' }
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -46,6 +52,18 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))'
         }
       },
+      backgroundImage: {
+        'hero-right-side':
+          'radial-gradient(farthest-corner circle at 0% 0%, rgba(0, 58, 117, 0.3) 0%, #101418 100%)',
+        'navigation-blog':
+          'linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%)',
+        'navigation-works':
+          'linear-gradient(-225deg, #7742B2 0%, #F180FF 52%, #FD8BD9 100%)',
+        'navigation-insights':
+          'linear-gradient(-225deg, #77FFD2 0%, #6297DB 48%, #1EECFF 100%)',
+        'showcase-container':
+          'linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%)'
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -67,5 +85,12 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('hocus', ['&:hover', '&:focus']);
+    }),
+    require('tailwindcss-animate'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
+  ]
 };

@@ -1,10 +1,8 @@
 'use client';
 
-// hooks
-import type { CopyFn, CopiedValue } from 'src/types/hooks';
-
-// react
 import { useState } from 'react';
+
+import type { CopiedValue, CopyFn } from 'src/types/hooks';
 
 /**
  * The `useCopyToClipboard` function is a custom React hook that allows you to copy text to the

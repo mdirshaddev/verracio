@@ -1,27 +1,32 @@
-// tailwindcss
 import 'src/app/globals.css';
+import 'src/app/mdx.css';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
-// next script
 import Script from 'next/script';
 
-// next font `sans`
+import { RootProvider } from 'src/app/root-provider';
+import { WebVitals } from 'src/app/web-vitals';
+
 import { fontSans } from 'shared-lib/fonts';
 
-// root level provider
-import { RootProvider } from 'src/app/root-provider';
+import { SiteFooter, SiteHeader } from 'src/components/layouts';
 
 export default function RootLayout(props: React.PropsWithChildren) {
   const { children } = props;
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={fontSans.className}>
+        <WebVitals />
         <RootProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
+          <SiteHeader />
           {children}
+          <SiteFooter />
         </RootProvider>
+        {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />

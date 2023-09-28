@@ -1,9 +1,7 @@
 'use client';
 
-// react
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-// preload state hooks
 import { usePreloadState } from './use-preload-state';
 
 /**

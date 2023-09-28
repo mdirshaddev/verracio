@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * The `useMousePosition` function is a custom hook in TypeScript that tracks the mouse position within

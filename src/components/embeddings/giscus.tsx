@@ -1,9 +1,6 @@
 'use client';
 
-// react giscus
 import Giscus from '@giscus/react';
-
-// next-theme
 import { useTheme } from 'next-themes';
 
 /**
@@ -14,7 +11,7 @@ export const GiscusCommentBox = () => {
   const { theme } = useTheme();
   return (
     <Giscus
-      repo={`${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/${process.env.NEXT_PUBLIC_GITHUB_REPONAME}`}
+      repo={`${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/mdirshad`}
       repoId={process.env.NEXT_PUBLIC_GITHUB_REPO_ID}
       category='General'
       categoryId='DIC_kwDOKVdfq84CZfTc'

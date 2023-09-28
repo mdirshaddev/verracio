@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from 'shared-lib/utils';
-
 import Link, { LinkProps } from 'next/link';
+
+import { cn } from 'shared-lib/utils';
 
 export type NextLinkProps = {
   href: string;

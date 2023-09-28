@@ -1,12 +1,9 @@
 'use client';
 
-// react
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-// Shadcn
 import { cn } from 'shared-lib/utils';
 
-// preload context
 import { PreloadContext } from 'src/modules/contexts/preload-context';
 
 /**

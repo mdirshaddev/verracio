@@ -12,7 +12,7 @@ datasource db {
 
 generator typegraphql {
   provider           = "typegraphql-prisma"
-  output             = "../generated/type-graphql"
+  output             = "../generated/apollo/prisma"
   emitTranspiledCode = true
 }
 

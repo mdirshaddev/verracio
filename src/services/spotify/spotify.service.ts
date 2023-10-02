@@ -1,5 +1,7 @@
 import { URLSearchParams } from 'url';
 
+import type { CurrentlyPlaying } from 'spotify-types';
+
 /**
  * The `SpotifyService` class is responsible for retrieving an access token from Spotify using a
 refresh token.
@@ -55,5 +57,34 @@ export class SpotifyService {
       // TODO: Spotify access token
       throw new Error('Spotify Access Token function is not working');
     }
+  }
+
+  public async getCurrentPlaying(): Promise<
+    | CurrentlyPlaying
+    | {
+        is_playing: boolean;
+      }
+    | undefined
+  > {
+    try {
+      const { access_token } = await this.getAccessToken();
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_SPOTIFY_NOW_PLAYING_ENDPOINT,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${access_token}`
+          }
+        }
+      );
+
+      if (response.status === 204 || response.status > 400) {
+        return {
+          is_playing: false
+        };
+      }
+
+      return (await response.json()) as CurrentlyPlaying;
+    } catch (e) {}
   }
 }

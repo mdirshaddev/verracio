@@ -1,7 +1,7 @@
 import { ApolloServerPlugin } from '@apollo/server';
 import * as Sentry from '@sentry/nextjs';
 
-const SentryObservability: ApolloServerPlugin = {
+export const SentryObservability: ApolloServerPlugin = {
   // server lifecycle event
   async requestDidStart(ctx) {
     /* Within this returned object, define functions that respond
@@ -51,5 +51,3 @@ const SentryObservability: ApolloServerPlugin = {
     };
   }
 };
-
-export { SentryObservability };

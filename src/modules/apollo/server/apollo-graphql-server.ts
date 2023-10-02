@@ -9,6 +9,9 @@ import { nextPrismaClient as prisma } from 'src/modules/prisma/prisma-client';
 
 import { TypeGraphQLIntegratedSchema } from 'src/modules/schema';
 
+import { GraphQLQueryComplexity } from './plugins/GraphQLQueryComplexity';
+import { SentryObservability } from './plugins/SentryObservability';
+
 /**
  * The function creates an Apollo Server instance with a TypeGraphQL integrated schema, bounded cache,
  * CSRF prevention, and no error formatting or plugins.
@@ -21,7 +24,7 @@ const ApolloServerWithTypeGraphQLSchema = async () => {
     cache: 'bounded',
     csrfPrevention: true,
     formatError: error => error,
-    plugins: []
+    plugins: [SentryObservability, GraphQLQueryComplexity]
   });
 };
 

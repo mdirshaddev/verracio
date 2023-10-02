@@ -18,7 +18,7 @@ export const CreateLoading: ({
     return (
       <Skeleton
         style={{ width: width, height: height }}
-        className='rounded-md bg-background'
+        className='rounded-xl bg-background'
       />
     );
   };

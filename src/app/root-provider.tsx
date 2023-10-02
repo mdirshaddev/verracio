@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { ApolloProvider } from '@apollo/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { type ThemeProviderProps } from 'next-themes/dist/types';
 
@@ -32,6 +34,7 @@ declare const window: window;
  */
 export function RootProvider({ children, ...props }: RootProviderProps) {
   const { toast } = useToast();
+  const queryClientRef = useRef<QueryClient>(new QueryClient());
 
   useEffect(() => {
     if (
@@ -104,7 +107,7 @@ export function RootProvider({ children, ...props }: RootProviderProps) {
 
   useEffect(() => {
     // deepcode ignore InsufficientPostmessageValidation: here the NODE_ENV is taken care from node side
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV !== 'development') {
       const firebaseService = new FirebaseService();
       // TODO: Firebase cloud messaging
       firebaseService.getFCMToken();
@@ -125,8 +128,11 @@ export function RootProvider({ children, ...props }: RootProviderProps) {
   return (
     <NextThemesProvider {...props}>
       <ApolloProvider client={nextGraphOSIntegratedApolloClient}>
-        <Toaster />
-        {children}
+        <QueryClientProvider client={queryClientRef.current}>
+          <Toaster />
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </ApolloProvider>
     </NextThemesProvider>
   );

@@ -2,30 +2,31 @@
 
 import Image from 'next/image';
 
-// import { useGithubOverviewQuery } from 'generated/generates';
+import { useGithubOverviewQuery } from 'generated/github/github-graphql-types';
 import { SiClockify } from 'react-icons/si';
 import { TfiGithub } from 'react-icons/tfi';
 
-// import { githubGraphQLClient } from 'src/services/github';
+import { GitHubService } from 'src/services/github/github.service';
 
 const month = new Date().getUTCMonth();
 const year = new Date().getUTCFullYear();
 
 // TODO: Fetch my githb data from my personal github account and populate here
 export const GithubOverview: React.FC = (): JSX.Element => {
-  // const { data, isFetched, isLoading, isError } = useGithubOverviewQuery(
-  //   githubGraphQLClient,
-  //   { username: 'mdirshaddev', first: 5 },
-  //   { cacheTime: 50000 }
-  // );
+  const { data, isFetched, isLoading, isError } = useGithubOverviewQuery(
+    new GitHubService().githubGraphQLClient(),
+    { username: 'mdirshaddev', first: 5 },
+    { cacheTime: 50000 }
+  );
+  console.log('GitHub data', data);
   return (
     <div
       style={{
-        background: 'linear-gradient(to right bottom, #007FFF, #0059B2 120%)',
+        // background: 'linear-gradient(to right bottom, #007FFF, #0059B2 120%)',
         color: 'white'
       }}
-      className='h-[264px] cursor-pointer overflow-hidden rounded-xl border-[1px] border-solid border-[#5090D3] p-[20px] transition-all hover:shadow-xl'>
-      {/* {isLoading && !data && !isError && !isFetched && (
+      className='h-[264px] bg-[#0d1117] cursor-pointer overflow-hidden rounded-xl border-[1px] border-solid border-[#5090D3] p-[20px] transition-all hover:shadow-xl'>
+      {isLoading && !data && !isError && !isFetched && (
         <div className='flex h-full flex-col items-center justify-center'>
           <div className='text-white'>Loading...</div>
         </div>
@@ -60,7 +61,7 @@ export const GithubOverview: React.FC = (): JSX.Element => {
         <div className='flex h-full flex-col items-center justify-center'>
           <p className='text-white'>There is no data</p>
         </div>
-      )} */}
+      )}
     </div>
   );
 };

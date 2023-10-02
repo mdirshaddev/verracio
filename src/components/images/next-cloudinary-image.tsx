@@ -31,8 +31,7 @@ export const NextCloudinaryImg: React.FC<NextCloudinaryImgType> = props => {
 
   const urlBlurred = buildUrl(publicId, {
     cloud: {
-      // cloudName: 'mdirshaddev'
-      cloudName: 'theodorusclarence'
+      cloudName: 'mdirshaddev'
     },
     transformations: {
       effect: {
@@ -46,8 +45,7 @@ export const NextCloudinaryImg: React.FC<NextCloudinaryImgType> = props => {
   });
   const url = buildUrl(publicId, {
     cloud: {
-      // cloudName: 'mdirshaddev'
-      cloudName: 'theodorusclarence'
+      cloudName: 'mdirshaddev'
     },
     transformations: {
       rawTransformation: aspect

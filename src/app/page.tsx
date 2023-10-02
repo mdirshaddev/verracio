@@ -10,23 +10,6 @@ import {
 
 import { FadeInContainer } from 'src/components/animations';
 
-export const metadata: Metadata = {
-  title: 'Md Irshad - 🐋 Software Developer',
-  description: 'Building things for better future',
-  colorScheme: 'dark',
-  category: 'Personal Website',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' }
-  ],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: ['/favicon-16x16.png', '/favicon-32x32.png'],
-    apple: '/apple-touch-icon.png'
-  },
-  manifest: '/manifest.webmanifest'
-};
-
 export default async function Page() {
   return (
     <main className='relative min-h-[calc(100vh-64px)] overflow-hidden'>

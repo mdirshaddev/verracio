@@ -4,6 +4,8 @@ import { type NextRequest } from 'next/server';
 
 import { nextIntegratedApolloServerHandler } from 'src/modules/apollo/server/apollo-graphql-server';
 
+export const revalidate = 0;
+
 /**
  * The above function is an async function that handles GET requests by using an integrated Apollo
  * Server handler.

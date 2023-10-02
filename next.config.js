@@ -1,7 +1,7 @@
 const path = require('path');
 const withPWAConfig = require('next-pwa');
-const { version } = require('./package.json');
 const { withSentryConfig } = require('@sentry/nextjs');
+const { version } = require('./package.json');
 
 /**
  * The function `generateAppDirEntry` registers a service worker on the app directory in a Next.js
@@ -91,6 +91,8 @@ const nextConfig = {
       const entry = generateAppDirEntry(config.entry);
       config.entry = () => entry;
     }
+    config.experiments = config.experiments || {};
+    config.experiments.topLevelAwait = true;
     return config;
   }
 };

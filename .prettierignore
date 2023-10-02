@@ -4,5 +4,6 @@ pnpm-lock.yaml
 **/ui
 *.schema.ts
 *.resolver.ts
-type-graphql.graphql
-generated/type-graphql/**
+*-schema.graphql
+generated/**
+**/data/**

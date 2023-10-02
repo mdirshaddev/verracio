@@ -1,9 +1,15 @@
 import 'reflect-metadata';
 
 import { makeExecutableSchema } from '@graphql-tools/schema';
+import {
+  AccountCrudResolver,
+  SessionCrudResolver,
+  UserCrudResolver,
+  VerificationTokenCrudResolver
+} from 'generated/apollo/prisma';
 import { buildTypeDefsAndResolvers } from 'type-graphql';
 
-import { Spotify } from './resolvers/models/spotify.schema';
+import { SpotifyCurrentPlaying } from './resolvers/models/spotify.schema';
 import { SpotifyResolver } from './resolvers/spotify.resolver';
 
 /**
@@ -13,8 +19,15 @@ import { SpotifyResolver } from './resolvers/spotify.resolver';
  */
 export const TypeGraphQLIntegratedSchema = async () => {
   const { typeDefs, resolvers } = await buildTypeDefsAndResolvers({
-    resolvers: [SpotifyResolver, Spotify],
-    emitSchemaFile: './type-graphql.graphql'
+    resolvers: [
+      AccountCrudResolver,
+      SessionCrudResolver,
+      UserCrudResolver,
+      VerificationTokenCrudResolver,
+      SpotifyResolver,
+      SpotifyCurrentPlaying
+    ],
+    emitSchemaFile: 'apollo-schema.graphql'
   });
   return makeExecutableSchema({ typeDefs, resolvers });
 };

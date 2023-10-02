@@ -58,6 +58,9 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
+  "[graphql]": {
+    "editor.tabSize": 2
+  },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },

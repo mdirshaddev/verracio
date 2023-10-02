@@ -1,6 +1,6 @@
 'use client';
 
-import Giscus from '@giscus/react';
+import Giscus, { Theme } from '@giscus/react';
 import { useTheme } from 'next-themes';
 
 /**
@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes';
  * the Giscus library, with various props for customization.
  */
 export const GiscusCommentBox = () => {
-  const { theme } = useTheme();
+  const { theme, systemTheme } = useTheme();
   return (
     <Giscus
       repo={`${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/mdirshad`}
@@ -18,7 +18,9 @@ export const GiscusCommentBox = () => {
       strict='1'
       mapping='pathname'
       inputPosition={'top'}
-      theme={theme}
+      theme={
+        theme == 'system' ? systemTheme : theme == 'light' ? 'light' : 'dark'
+      }
       lang={'en'}
       loading='lazy'
       emitMetadata='1'

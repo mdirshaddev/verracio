@@ -107,14 +107,16 @@ const Page: React.FC<Props> = async ({
             <div className='mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert'>
               {code && <MDXComponent code={code} />}
             </div>
-            <aside className='hidden py-4 lg:block'>
+            <aside className='hidden py-4 xl:block'>
               <div className='sticky top-24'>
                 <BlogStats />
               </div>
             </aside>
           </div>
           {/* Comment box giscus */}
-          <GiscusCommentBox />
+          <figure className='mr-1'>
+            <GiscusCommentBox />
+          </figure>
           <div className='mt-8 flex flex-col items-start gap-4 md:flex-row-reverse md:justify-between'>
             <StyledLink href={GITHUB_EDIT_LINK}>Edit this on GitHub</StyledLink>
             <StyledLink

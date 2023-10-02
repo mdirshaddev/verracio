@@ -26,7 +26,7 @@ const Page: React.FC = async (): Promise<JSX.Element> => {
               AKA discussions
             </a>
           </p>
-          <figure className='mt-12'>
+          <figure className='mt-12 mr-1'>
             <GiscusCommentBox />
           </figure>
         </FadeInContainer>

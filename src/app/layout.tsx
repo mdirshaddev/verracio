@@ -58,7 +58,10 @@ export default function RootLayout(props: React.PropsWithChildren) {
           });
         `}
         </Script>
-        <Script type='text/javascript' id='microsoft-clarity'>
+        <Script
+          type='text/javascript'
+          strategy='afterInteractive'
+          id='behaviour-analytics'>
           {`
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

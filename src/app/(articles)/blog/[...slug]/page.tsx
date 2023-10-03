@@ -1,6 +1,7 @@
 import { type Metadata, type ResolvingMetadata } from 'next';
 
 import { format } from 'date-fns';
+import { ReadTimeResults } from 'reading-time';
 
 import {
   BlogStats,
@@ -29,23 +30,42 @@ export async function generateMetadata(
   // read route params
   const slug = params.slug;
 
-  const blogPost = await getBlogPost(params);
+  const blogPost = (await getBlogPost(params)) as {
+    code: string | undefined;
+    frontmatter: {
+      [key: string]: any;
+      wordCount: number;
+      readingTime: ReadTimeResults;
+      slug: string | null;
+    };
+  };
 
   return {
     title: 'Md Irshad - 📖 ' + blogPost?.frontmatter.title,
     description: blogPost?.frontmatter.description
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages]
-    // }
   };
 }
 
-// export async function generateStaticParams() {}
+export async function generateStaticParams(): Promise<
+  {
+    slug: Array<string>;
+  }[]
+> {
+  const markdownService = new MarkdownService();
+  const postSlug = (await markdownService.getFileSlugArray('blog')) as {
+    slug: Array<string>;
+  }[];
+  return postSlug;
+}
 
 async function getBlogPost({ slug }: { slug: string }) {
   const markdownService = new MarkdownService();
   const posts = await markdownService.getFileBySlug('blog', slug);
-  return posts;
+  if (!posts) {
+    return null;
+  } else {
+    return posts;
+  }
 }
 
 const Page: React.FC<Props> = async ({

@@ -106,12 +106,15 @@ export class MarkdownService {
     try {
       const filePath = join(process.cwd(), 'src', 'data', type);
       let filesPathArray = await this.getFileList(filePath);
-      const slugArray = filesPathArray?.forEach(path =>
-        path
+      const slugArray = filesPathArray?.map(path => {
+        const slugName = path
           .replace(filePath + '/', '')
           .replace('.mdx', '')
-          .split('/')
-      );
+          .split('/');
+        return {
+          slug: slugName
+        };
+      });
       return slugArray;
     } catch (err) {
       // TODO: Sentry error log

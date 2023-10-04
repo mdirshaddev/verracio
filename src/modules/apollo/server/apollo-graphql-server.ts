@@ -4,10 +4,17 @@ import { type NextRequest } from 'next/server';
 
 import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
+import {
+  AccountCrudResolver,
+  SessionCrudResolver,
+  UserCrudResolver,
+  VerificationTokenCrudResolver
+} from 'generated/apollo/prisma';
+import { SpotifyCurrentPlaying } from 'src/modules/schema/resolvers/models/spotify.schema';
+import { SpotifyResolver } from 'src/modules/schema/resolvers/spotify.resolver';
+import { buildSchema } from 'type-graphql';
 
 import { nextPrismaClient as prisma } from 'src/modules/prisma/prisma-client';
-
-import { TypeGraphQLIntegratedSchema } from 'src/modules/schema';
 
 import { GraphQLQueryComplexity } from './plugins/GraphQLQueryComplexity';
 import { SentryObservability } from './plugins/SentryObservability';
@@ -20,7 +27,17 @@ import { SentryObservability } from './plugins/SentryObservability';
  */
 const ApolloServerWithTypeGraphQLSchema = async () => {
   return new ApolloServer({
-    schema: await TypeGraphQLIntegratedSchema(),
+    schema: await buildSchema({
+      resolvers: [
+        AccountCrudResolver,
+        SessionCrudResolver,
+        UserCrudResolver,
+        VerificationTokenCrudResolver,
+        SpotifyResolver,
+        SpotifyCurrentPlaying
+      ],
+      emitSchemaFile: true
+    }),
     cache: 'bounded',
     csrfPrevention: true,
     formatError: error => error,

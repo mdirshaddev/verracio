@@ -19,7 +19,7 @@
     "github-codegen": "graphql-codegen --config github-codegen.ts",
     "generate-fcm": "node ./scripts/generate-firebase-messaging-sw.js",
     "generate-fcm:production:local": "node -r dotenv/config ./scripts/generate-firebase-messaging-sw.js dotenv_config_path=./.env dotenv_config_debug=true",
-    "vercel-build": "pnpm build && pnpm generate-fcm"
+    "vercel-build": "prisma generate && pnpm build && pnpm generate-fcm"
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",

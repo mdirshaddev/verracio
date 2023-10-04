@@ -45,3 +45,5 @@ next-env.d.ts
 
 # firebase cloud messaging service worker
 **/public/*-sw*.js*
+
+.vercel

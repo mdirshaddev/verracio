@@ -27,14 +27,11 @@ async function reverseProxyGitHubGraphQL(
       body: JSON.stringify(responseBody)
     });
 
-    const data = await res.json();
+    const data = (await res.json()) as any;
 
-    return NextResponse.json(data);
+    return NextResponse.json(data as any);
   } catch (e) {
     withScope(scope => {
-      scope.setUser({
-        ip_address: req.headers.get('x-forwarded-for') as string | undefined
-      });
       captureException(e);
     });
   }

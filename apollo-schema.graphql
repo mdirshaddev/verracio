@@ -3,12 +3,6 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-""""""
-type A {
-  """"""
-  spotify: String!
-}
-
 type Account {
   access_token: String
   expires_at: Int
@@ -529,50 +523,6 @@ input DateTimeWithAggregatesFilter {
   notIn: [DateTimeISO!]
 }
 
-""""""
-type F {
-  external_urls: A!
-
-  """"""
-  href: String!
-
-  """"""
-  type: String!
-
-  """"""
-  uri: String!
-}
-
-type I {
-  """"""
-  album_type: String!
-  artists: [S!]!
-
-  """"""
-  external_urls: A!
-
-  """"""
-  href: String!
-
-  """"""
-  id: String!
-
-  """"""
-  images: [f!]!
-
-  """"""
-  name: String!
-
-  """"""
-  total_tracks: Float!
-
-  """"""
-  type: String!
-
-  """"""
-  uri: String!
-}
-
 input IntNullableFilter {
   equals: Int
   gt: Int
@@ -813,45 +763,6 @@ enum NullsOrder {
   last
 }
 
-type O {
-  """"""
-  album: I!
-  artists: [S!]!
-
-  """"""
-  explicit: Boolean!
-
-  """"""
-  external_urls: A!
-
-  """"""
-  href: String!
-
-  """"""
-  id: String!
-
-  """"""
-  is_local: Boolean!
-
-  """"""
-  name: String!
-
-  """"""
-  popularity: Float!
-
-  """"""
-  preview_url: String
-
-  """"""
-  track_number: Float!
-
-  """"""
-  type: String!
-
-  """"""
-  uri: String!
-}
-
 type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(cursor: AccountWhereUniqueInput, distinct: [AccountScalarFieldEnum!], orderBy: [AccountOrderByWithRelationInput!], skip: Int, take: Int, where: AccountWhereInput): [Account!]!
@@ -859,7 +770,7 @@ type Query {
   aggregateSession(cursor: SessionWhereUniqueInput, orderBy: [SessionOrderByWithRelationInput!], skip: Int, take: Int, where: SessionWhereInput): AggregateSession!
   aggregateUser(cursor: UserWhereUniqueInput, orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): AggregateUser!
   aggregateVerificationToken(cursor: VerificationTokenWhereUniqueInput, orderBy: [VerificationTokenOrderByWithRelationInput!], skip: Int, take: Int, where: VerificationTokenWhereInput): AggregateVerificationToken!
-  currentPlaying: U!
+  currentPlaying: SpotifyCurrentPlaying!
   findFirstAccount(cursor: AccountWhereUniqueInput, distinct: [AccountScalarFieldEnum!], orderBy: [AccountOrderByWithRelationInput!], skip: Int, take: Int, where: AccountWhereInput): Account
   findFirstAccountOrThrow(cursor: AccountWhereUniqueInput, distinct: [AccountScalarFieldEnum!], orderBy: [AccountOrderByWithRelationInput!], skip: Int, take: Int, where: AccountWhereInput): Account
   findFirstSession(cursor: SessionWhereUniqueInput, distinct: [SessionScalarFieldEnum!], orderBy: [SessionOrderByWithRelationInput!], skip: Int, take: Int, where: SessionWhereInput): Session
@@ -887,26 +798,6 @@ type Query {
 enum QueryMode {
   default
   insensitive
-}
-
-type S {
-  """"""
-  external_urls: A!
-
-  """"""
-  href: String!
-
-  """"""
-  id: String!
-
-  """"""
-  name: String!
-
-  """"""
-  type: String!
-
-  """"""
-  uri: String!
 }
 
 type Session {
@@ -1148,6 +1039,140 @@ input SortOrderInput {
   sort: SortOrder!
 }
 
+""""""
+type SporifyContext {
+  external_urls: SpotifyExternalURL!
+
+  """"""
+  href: String!
+
+  """"""
+  type: String!
+
+  """"""
+  uri: String!
+}
+
+type SpotifyAlbum {
+  """"""
+  album_type: String!
+  artists: [SpotifyArtist!]!
+
+  """"""
+  external_urls: SpotifyExternalURL!
+
+  """"""
+  href: String!
+
+  """"""
+  id: String!
+
+  """"""
+  images: [SpotifyImage!]!
+
+  """"""
+  name: String!
+
+  """"""
+  total_tracks: Float!
+
+  """"""
+  type: String!
+
+  """"""
+  uri: String!
+}
+
+type SpotifyArtist {
+  """"""
+  external_urls: SpotifyExternalURL!
+
+  """"""
+  href: String!
+
+  """"""
+  id: String!
+
+  """"""
+  name: String!
+
+  """"""
+  type: String!
+
+  """"""
+  uri: String!
+}
+
+"""Spotify current playing"""
+type SpotifyCurrentPlaying {
+  context: SporifyContext
+
+  """"""
+  currently_playing_type: String
+
+  """Is playing on spotify"""
+  is_playing: Boolean
+  item: SpotifyItem
+  progress_ms: Float
+  timestamp: Float
+}
+
+""""""
+type SpotifyExternalURL {
+  """"""
+  spotify: String!
+}
+
+type SpotifyImage {
+  """"""
+  height: Float!
+
+  """"""
+  url: String!
+
+  """"""
+  width: Float!
+}
+
+type SpotifyItem {
+  """"""
+  album: SpotifyAlbum!
+  artists: [SpotifyArtist!]!
+
+  """"""
+  explicit: Boolean!
+
+  """"""
+  external_urls: SpotifyExternalURL!
+
+  """"""
+  href: String!
+
+  """"""
+  id: String!
+
+  """"""
+  is_local: Boolean!
+
+  """"""
+  name: String!
+
+  """"""
+  popularity: Float!
+
+  """"""
+  preview_url: String
+
+  """"""
+  track_number: Float!
+
+  """"""
+  type: String!
+
+  """"""
+  uri: String!
+}
+
 input StringFieldUpdateOperationsInput {
   set: String
 }
@@ -1216,20 +1241,6 @@ input StringWithAggregatesFilter {
   not: NestedStringWithAggregatesFilter
   notIn: [String!]
   startsWith: String
-}
-
-"""Spotify current playing"""
-type U {
-  context: F
-
-  """"""
-  currently_playing_type: String
-
-  """Is playing on spotify"""
-  is_playing: Boolean
-  item: O
-  progress_ms: Float
-  timestamp: Float
 }
 
 type User {
@@ -1637,15 +1648,4 @@ input VerificationTokenWhereUniqueInput {
   identifier: StringFilter
   identifier_token: VerificationTokenIdentifierTokenCompoundUniqueInput
   token: String
-}
-
-type f {
-  """"""
-  height: Float!
-
-  """"""
-  url: String!
-
-  """"""
-  width: Float!
 }

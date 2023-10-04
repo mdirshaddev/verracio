@@ -1,5 +1,7 @@
 import 'reflect-metadata';
 
+import { resolve } from 'path';
+
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import {
   AccountCrudResolver,
@@ -27,7 +29,7 @@ export const TypeGraphQLIntegratedSchema = async () => {
       SpotifyResolver,
       SpotifyCurrentPlaying
     ],
-    emitSchemaFile: 'apollo-schema.graphql'
+    emitSchemaFile: resolve(__dirname, 'apollo-schema.graphql')
   });
   return makeExecutableSchema({ typeDefs, resolvers });
 };

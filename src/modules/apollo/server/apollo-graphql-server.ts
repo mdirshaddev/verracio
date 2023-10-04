@@ -36,8 +36,9 @@ const ApolloServerWithTypeGraphQLSchema = async () => {
         SpotifyResolver,
         SpotifyCurrentPlaying
       ],
-      emitSchemaFile: true
+      emitSchemaFile: process.env.NODE_ENV === 'production' ? false : true
     }),
+    introspection: true,
     cache: 'bounded',
     csrfPrevention: true,
     formatError: error => error,

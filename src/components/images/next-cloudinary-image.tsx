@@ -3,19 +3,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-
-
 import { buildUrl } from 'cloudinary-build-url';
 import Lightbox from 'react-18-image-lightbox';
 import type { NextCloudinaryImgType } from 'src/types/next-cloudinary';
 
-
-
 import { cn } from 'shared-lib/utils';
-
-
-
-
 
 /* The code is defining a React functional component called `NextCloudinaryImg`. It takes in a set of
 props of type `NextCloudinaryImgType`. */

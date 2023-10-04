@@ -28,8 +28,7 @@ export const TypeGraphQLIntegratedSchema = async () => {
       VerificationTokenCrudResolver,
       SpotifyResolver,
       SpotifyCurrentPlaying
-    ],
-    emitSchemaFile: resolve(__dirname, 'apollo-schema.graphql')
+    ]
   });
   return makeExecutableSchema({ typeDefs, resolvers });
 };

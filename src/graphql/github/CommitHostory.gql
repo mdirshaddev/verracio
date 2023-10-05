@@ -1,0 +1,28 @@
+query CommitHostory($filepath: String!, $branch: String!) {
+  repository(owner: "mdirshaddev", name: "mdirshad") {
+    refs(refPrefix: "refs/heads/", query: $branch, first: 100) {
+      nodes {
+        target {
+          ... on Commit {
+            history(first: 100, path: $filepath) {
+              nodes {
+                message
+                committedDate
+                authoredDate
+                additions
+                deletions
+                resourcePath
+                signature {
+                  wasSignedByGitHub
+                  email
+                  isValid
+                  payload
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

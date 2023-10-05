@@ -1,0 +1,9 @@
+node_modules
+.next
+pnpm-lock.yaml
+**/ui
+*.schema.ts
+*.resolver.ts
+*-schema.graphql
+generated/**
+**/data/**

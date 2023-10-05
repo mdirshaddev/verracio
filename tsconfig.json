@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "lib": ["dom", "dom.iterable", "esnext", "esnext.asynciterable"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "shared-ui/*": ["src/components/shared/ui/*"], // shadcn ui component
+      "shared-config/*": ["src/configs/*"], // base config for the application
+      "shared-lib/*": ["src/lib/*"] // shadcn lib for utils and fonts
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}
